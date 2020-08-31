@@ -1,0 +1,90 @@
+@mixin scrollBar {
+    &::-webkit-scrollbar-track-piece {
+        background: #d3dce6;
+    }
+
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #99a9bf;
+        border-radius: 20px;
+    }
+}
+
+@mixin relative {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+@mixin clearfix {
+    &:after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin pct($pct) {
+    width: #{$pct};
+    position: relative;
+    margin: 0 auto;
+}
+
+// 三角形
+@mixin triangle($width, $height, $color, $direction) {
+    $width: $width/2;
+    $color-border-style: $height solid $color;
+    $transparent-border-style: $width solid transparent;
+    height: 0;
+    width: 0;
+
+    @if $direction==up {
+        border-bottom: $color-border-style;
+        border-left: $transparent-border-style;
+        border-right: $transparent-border-style;
+    } @else if $direction==right {
+        border-left: $color-border-style;
+        border-top: $transparent-border-style;
+        border-bottom: $transparent-border-style;
+    } @else if $direction==down {
+        border-top: $color-border-style;
+        border-left: $transparent-border-style;
+        border-right: $transparent-border-style;
+    } @else if $direction==left {
+        border-right: $color-border-style;
+        border-top: $transparent-border-style;
+        border-bottom: $transparent-border-style;
+    }
+}
+
+// padding
+@mixin padding($val) {
+    padding: $val;
+    box-sizing: border-box;
+}
+
+// 溢出省略
+@mixin ellipsis {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+// flex布局
+@mixin flex($justify: center, $align: center, $direction: row) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    flex-direction: $direction;
+}
+
+// 垂直上下居中
+@mixin center($top: 50%, $left: 50%, $transformX: -50%, $transformY: -50%) {
+    position: absolute;
+    top: $top;
+    left: $left;
+    transform: translate($transformX, $transformY);
+}
