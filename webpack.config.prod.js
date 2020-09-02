@@ -1,12 +1,29 @@
-var path = require('path');
-var webpack = require('webpack');
+var path = require('path')
+var webpack = require('webpack')
 
 module.exports = {
-    entry: './src/main.js',
+    entry: './src/packages/index.js',
     output: {
-        path: path.resolve(__dirname, './dist'),
+        path: path.resolve(__dirname, 'dist'),
         publicPath: '/dist/',
-        filename: 'build.js',
+        filename: 'timeline.js',
+        library: 'vueTimeline',
+        libraryTarget: 'umd',
+        umdNamedDefine: true,
+    },
+    externals: {
+        vue: {
+            root: 'Vue',
+            commonjs: 'vue',
+            commonjs2: 'vue',
+            amd: 'vue',
+        },
+        '@better-scroll/core': {
+            root: '@better-scroll/core',
+            commonjs: '@better-scroll/core',
+            commonjs2: '@better-scroll/core',
+            amd: '@better-scroll/core',
+        },
     },
     module: {
         rules: [
@@ -57,21 +74,11 @@ module.exports = {
         },
         extensions: ['*', '.js', '.vue', '.json'],
     },
-    devServer: {
-        historyApiFallback: true,
-        noInfo: true,
-        overlay: true,
-    },
     performance: {
         hints: false,
     },
-    devtool: '#eval-source-map',
-};
-
-if (process.env.NODE_ENV === 'production') {
-    module.exports.devtool = '#source-map';
-    // http://vue-loader.vuejs.org/en/workflow/production.html
-    module.exports.plugins = (module.exports.plugins || []).concat([
+    devtool: '#source-map',
+    plugins: [
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: '"production"',
@@ -86,5 +93,5 @@ if (process.env.NODE_ENV === 'production') {
         new webpack.LoaderOptionsPlugin({
             minimize: true,
         }),
-    ]);
+    ],
 }

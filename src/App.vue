@@ -7,7 +7,7 @@
             @arrive-right="onArriveRight"
         ></time-line>
 
-        <div @click="scroll">滚动到00:00:00</div>
+        <div @click="scroll">scrollTo 00:00:00</div>
     </div>
 </template>
 
@@ -35,6 +35,9 @@ export default {
         }
     },
     methods: {
+        /**
+         * @description when child component arrive left 00:00, you need push new times to timeBlocks
+         */
         onArriveLeft(datetime) {
             // let timeBlocks = [
             //     { startTime: '2020-08-22 07:00:00', endTime: '2020-08-23 08:00:00' },
@@ -43,6 +46,9 @@ export default {
             // ];
             // this.timeBlocks = [...new Set([...timeBlocks, ...this.timeBlocks])];
         },
+         /**
+         * @description when child component arrive right 00:00, you need push new times to timeBlocks
+         */
         onArriveRight(datetime) {
             // let timeBlocks = [
             //     { startTime: '2020-08-26 08:00:00', endTime: '2020-08-25 09:00:00' },

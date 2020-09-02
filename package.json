@@ -1,19 +1,27 @@
 {
     "name": "timeline",
-    "description": "A Vue.js project",
+    "description": "a component relate to video playback",
     "version": "1.0.0",
-    "author": "wenjian <wenjian@lookdoor.com>",
+    "author": "wenjian <1787176370@qq.com>",
     "license": "MIT",
-    "private": true,
+    "private": false,
+    "main": "dist/timeline.js",
     "scripts": {
-        "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
-        "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+        "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot --config webpack.config.dev.js",
+        "build": "cross-env NODE_ENV=production webpack --progress --hide-modules --config webpack.config.prod.js"
     },
     "dependencies": {
         "@babel/runtime-corejs3": "^7.11.2",
         "@better-scroll/core": "^2.0.0-beta.10",
         "core-js": "^3.6.5",
         "vue": "^2.5.11"
+    },
+    "keywords":[
+        "timeline", "vue", "video"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Mr-ccyou/timeline"
     },
     "browserslist": [
         "> 1%",
