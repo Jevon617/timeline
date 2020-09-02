@@ -58,13 +58,6 @@ module.exports = {
                 loader: 'babel-loader',
                 exclude: /node_modules/,
             },
-            {
-                test: /\.(png|jpg|gif|svg)$/,
-                loader: 'file-loader',
-                options: {
-                    name: '[name].[ext]?[hash]',
-                },
-            },
         ],
     },
     resolve: {
@@ -77,15 +70,21 @@ module.exports = {
     performance: {
         hints: false,
     },
-    devtool: '#source-map',
-    plugins: [
+    devtool: '#eval-source-map',
+}
+
+if (process.env.NODE_ENV === 'production') {
+    console.log('12313')
+    module.exports.devtool = '#source-map'
+    // http://vue-loader.vuejs.org/en/workflow/production.html
+    module.exports.plugins = (module.exports.plugins || []).concat([
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: '"production"',
             },
         }),
         new webpack.optimize.UglifyJsPlugin({
-            sourceMap: true,
+            sourceMap: false,
             compress: {
                 warnings: false,
             },
@@ -93,5 +92,5 @@ module.exports = {
         new webpack.LoaderOptionsPlugin({
             minimize: true,
         }),
-    ],
+    ])
 }

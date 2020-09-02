@@ -1,7 +1,7 @@
 {
-    "name": "vue-timeline",
+    "name": "@curry30/vue-time-line",
     "description": "a component relate to video playback",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "author": "wenjian <1787176370@qq.com>",
     "license": "MIT",
     "private": false,
@@ -16,8 +16,10 @@
         "core-js": "^3.6.5",
         "vue": "^2.5.11"
     },
-    "keywords":[
-        "timeline", "vue", "video"
+    "keywords": [
+        "timeline",
+        "vue",
+        "video"
     ],
     "repository": {
         "type": "git",

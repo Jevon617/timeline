@@ -1,18 +1,18 @@
 # vueTimeline
-
-> A component relate to video playback
+    A component relate to video playback
 
 ## Setup vueTimeline
-    import vueTimeline from 'vue-timeline'
+    import vueTimeLine from '@curry30/vue-time-line'
+    Vue.use(vueTimeLine)
 
 ## Useage
     // template
-    <vue-timeline
+    <vue-time-line
         ref="timeline"
         :timeBlocksProp="timeBlocks"
         @arrive-left="onArriveLeft"
         @arrive-right="onArriveRight"
-    ></vue-timeline>
+    ></vue-time-line>
     
     // js
     data() {
