@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import timeLine from '@/packages/timeline.vue';
+import timeLine from '@/packages/timeline.vue'
 
 export default {
     name: 'App',
@@ -32,7 +32,7 @@ export default {
                 { startTime: '2020-08-25 11:00:00', endTime: '2020-08-25 12:00:00' },
                 { startTime: '2020-08-25 15:00:00', endTime: '2020-08-25 19:30:00' },
             ],
-        };
+        }
     },
     methods: {
         onArriveLeft(datetime) {
@@ -52,10 +52,10 @@ export default {
             // this.timeBlocks = [...new Set([...this.timeBlocks, ...timeBlocks])];
         },
         scroll() {
-            this.$refs.timeline.scrollTo('00:00:00');
+            this.$refs.timeline.scrollTo('00:00:00')
         },
     },
-};
+}
 </script>
 
 
