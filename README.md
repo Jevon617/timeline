@@ -1,6 +1,9 @@
 # vueTimeline
     A component relate to video playback
 
+# example
+![avatar](/src/imgs/example.jpg)
+
 ## Setup vueTimeline
     import vueTimeLine from '@curry30/vue-time-line'
     Vue.use(vueTimeLine)
